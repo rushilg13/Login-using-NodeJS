@@ -119,25 +119,18 @@ app.get('/admin', (req, res) => {
 })
 
 app.post('/admin', (req, res) => {
-  console.log(req.body);
-  User_Detail.findOne({email: req.body.email}).then(function(data){
-    if (data === null)
+
+    if((req.body.pass1 == "admin") && (req.body.email === "admin@admin.com"))
     {
-      console.log("No User Found");
-      res.redirect('/admin');
-    }
-    else if(data.password == req.body.pass1)
-    {
-      req.session.email = data.email;
+      req.session.email = req.body.email;
       res.redirect('/admin_home');
     }
     else
     {
-      console.log("Incorrect Password")
+      console.log("Invalid Credentials")
       res.redirect('/admin');
     }
-}).catch(err => console.log('Caught:', err.message));
-})
+});
 
 app.get('/admin_home', (req, res) => {
   if (!req.session.email)
