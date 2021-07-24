@@ -11,7 +11,7 @@ Template Engine - Ejs <br>
 '/' - Register Page <br>
 '/login' - User Login <br>
 '/admin' - Admin Login <br>
-'admin_home' - Admin home page <br>
+'/admin_home' - Admin home page <br>
 '/home' - User home page <br>
 '/logout' - Logout <br>
 '/reset' - reset password <br>
